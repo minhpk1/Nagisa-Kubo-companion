@@ -1,93 +1,93 @@
 # Nagisa Kubo Desktop Companion v1.0.0 (Windows x64)
 
-Phiên bản phát hành chính thức đầu tiên của **Nagisa Kubo Desktop Companion** dành cho hệ điều hành Windows 10/11 x64.
+The first official release of **Nagisa Kubo Desktop Companion** for Windows 10/11 x64.
 
-Ứng dụng tích hợp nhân vật desktop tương tác, chuyển giọng RVC cục bộ với cao độ +6, biểu cảm hoạt họa theo ngữ cảnh và bộ công cụ Agent quản lý tệp tin/ứng dụng với cơ chế kiểm soát quyền an toàn.
+An interactive desktop AI companion featuring character animations, local RVC v2 voice conversion with +6 pitch, context-aware emotional expressions, and autonomous desktop assistant tools with granular user permission controls.
 
 ---
 
-## 1. Tải về và Cài đặt
+## 1. Download and Installation
 
-Do kích thước của gói chạy độc lập đầy đủ (bao gồm PyTorch CUDA, mô hình RVC Nagisa Kubo, HuBERT Base và RMVPE) là **3.47 GiB sau khi nén**, vượt quá giới hạn 2.0 GiB/tệp của GitHub Releases, gói phân phối được chia thành 2 phần nhị phân liên tục tiêu chuẩn.
+Due to the size of the complete standalone package (including isolated Python 3.12 runtime, PyTorch CUDA 11.8, Nagisa Kubo RVC v2 model, HuBERT Base, and RMVPE) being **3.47 GiB after compression**, which exceeds GitHub Releases' 2.0 GiB per-file limit, the release bundle is split into two standard continuous binary parts.
 
-### Danh mục tệp phát hành (Release Assets)
+### Release Assets
 
-| Tệp tải về | Kích thước | Mã băm SHA-256 | Mô tả |
+| Filename | Size | SHA-256 Checksum | Description |
 | :--- | :--- | :--- | :--- |
-| **`Kubo-v1.0.0-windows-x64.zip.001`** | 1,939,865,600 B (1.81 GiB) | `44d3d20cbceab99a8e87a443e51be3949b21c783a44eed4b2943d092132c43d6` | Phần 1 của gói chạy đầy đủ |
-| **`Kubo-v1.0.0-windows-x64.zip.002`** | 1,788,332,621 B (1.67 GiB) | `c3eaf24eb63ba6828b7546badfffb219492bbb1323ab554dd0425ef741657962` | Phần 2 của gói chạy đầy đủ |
-| **`extract.cmd`** | 1,715 B | `321a6039fe65ef25dd06cf22d4fc1e34226a27e740cf2ae23f5b3558c422894d` | Tiện ích một chạm tự động gộp và giải nén trên Windows |
-| **`SHA256SUMS.txt`** | 1,348 B | — | Danh sách mã băm kiểm tra toàn vẹn |
+| **`Kubo-v1.0.0-windows-x64.zip.001`** | 1,939,865,600 B (1.81 GiB) | `44d3d20cbceab99a8e87a443e51be3949b21c783a44eed4b2943d092132c43d6` | Part 1 of full runnable bundle |
+| **`Kubo-v1.0.0-windows-x64.zip.002`** | 1,788,332,621 B (1.67 GiB) | `c3eaf24eb63ba6828b7546badfffb219492bbb1323ab554dd0425ef741657962` | Part 2 of full runnable bundle |
+| **`extract.cmd`** | 1,715 B | `321a6039fe65ef25dd06cf22d4fc1e34226a27e740cf2ae23f5b3558c422894d` | One-click Windows merge and auto-extract utility |
+| **`SHA256SUMS.txt`** | 1,348 B | — | Complete SHA-256 checksum verification list |
 
-> **Tệp nén gộp hoàn chỉnh (Merged)**: `Kubo-v1.0.0-windows-x64.zip` (3,728,198,221 bytes / 3.47 GiB)  
+> **Full Merged Archive**: `Kubo-v1.0.0-windows-x64.zip` (3,728,198,221 bytes / 3.47 GiB)  
 > **SHA-256 Full Archive**: `0f0da46872eb39ed27d49d58dd8619064376adaf3cf36dbacf9d17d6e1688cff`
 
 ---
 
-### Hướng dẫn Cài đặt Nhanh (Khuyến nghị)
+### Quick Installation (Recommended)
 
-1. Tải cả 3 tệp về **cùng một thư mục**:
+1. Download all 3 files into the **same folder**:
    - `Kubo-v1.0.0-windows-x64.zip.001`
    - `Kubo-v1.0.0-windows-x64.zip.002`
    - `extract.cmd`
-2. Nhấp đúp chuột vào tệp **`extract.cmd`**.
-   - Tiện ích sẽ tự động dùng lệnh nhị phân của Windows để ghép thành file `Kubo-v1.0.0-windows-x64.zip` và giải nén ra thư mục `Kubo\`.
-   - Không yêu cầu cài đặt thêm 7-Zip hay WinRAR.
-3. Mở thư mục `Kubo\` và nhấp đúp vào **`Kubo.exe`** để bắt đầu sử dụng!
+2. Double-click **`extract.cmd`**.
+   - The utility will automatically binary-merge the split parts into `Kubo-v1.0.0-windows-x64.zip` using native Windows commands and extract it into a `Kubo\` folder.
+   - No 7-Zip or WinRAR installation is required.
+3. Open the `Kubo\` folder and double-click **`Kubo.exe`** to start the app!
 
 ---
 
-### Hướng dẫn Gộp Thủ công (Nâng cao)
+### Manual Merge & Extraction (Advanced)
 
-Nếu muốn gộp và giải nén bằng dòng lệnh hoặc công cụ riêng:
+If you prefer to merge and extract using command prompt or third-party archivers:
 
 ```cmd
-:: Mở Command Prompt (cmd) tại thư mục chứa các file đã tải:
+:: Open Command Prompt (cmd) in the folder containing downloaded files:
 copy /b Kubo-v1.0.0-windows-x64.zip.001 + Kubo-v1.0.0-windows-x64.zip.002 Kubo-v1.0.0-windows-x64.zip
 ```
 
-Sau khi gộp xong, bạn có thể nhấp chuột phải vào `Kubo-v1.0.0-windows-x64.zip` chọn **Extract All...** (hoặc dùng 7-Zip / WinRAR / NanaZip).
+After merging, you can right-click `Kubo-v1.0.0-windows-x64.zip` and select **Extract All...** (or use 7-Zip / WinRAR / NanaZip).
 
 ---
 
-## 2. Các Thành phần Đã kiểm định (Verified Features)
+## 2. Verified Features
 
-- [x] **Giao diện PySide6 Desktop Companion**: Nhân vật hiển thị trên desktop, kéo thả di chuyển vị trí, menu chuột phải (Cài đặt, Giọng nói, Thoát).
-- [x] **Hệ thống Biểu cảm Tự động**: Render atlas ảnh Kubo và biểu cảm theo ngữ cảnh (bĩu môi, vui vẻ, bình thường).
-- [x] **Bộ chuyển giọng RVC v2 Cục bộ**: Nạp sẵn mô hình Nagisa Kubo 300 epochs, cao độ +6 pitch, HuBERT Base và RMVPE.
-- [x] **Trình quản lý tiến trình an toàn (Win32 Job Object)**: `KuboVoice.exe` đảm bảo tự động thu hồi sạch tiến trình Python ngầm khi đóng ứng dụng, chống treo tiến trình mồ côi.
-- [x] **Cô lập môi trường**: Không xung đột với các phiên bản Python khác đã cài trên máy.
-- [x] **Bảo mật**: 0 API key nhúng ngầm, 0 cấu hình cá nhân. Quyền truy cập tệp tin và ứng dụng của Agent mặc định ở trạng thái rỗng và người dùng toàn quyền cấp/hủy qua UI.
-
----
-
-## 3. Những Phần Chưa Kiểm chứng (Unverified Aspects)
-
-Người dùng và cộng đồng cần lưu ý các điểm chưa được kiểm chứng đầy đủ trong bản phát hành này:
-
-1. **Phát âm thanh ra loa ngoài vật lý**:
-   - Trong quá trình đóng gói và kiểm thử tự động trên môi trường phát triển headless, hệ thống đã kiểm tra tính toàn vẹn của dữ liệu sóng âm PCM (độ dài chính xác, biên độ đỉnh 29,573 - 31,879 non-silent, không clip).
-   - Chưa tiến hành thẩm âm trực tiếp qua card âm thanh và loa vật lý.
-2. **Phiên hội thoại trực tiếp với LLM API thật**:
-   - Bản phát hành không kèm bất kỳ API key nào vì lý do bảo mật.
-   - Để trò chuyện, người dùng cần có kết nối Internet và tự nhập API key (OpenAI / Gemini hoặc dịch vụ tương thích) trong menu **Cài đặt**.
-3. **Môi trường Windows trắng tinh (Clean Machine)**:
-   - Bản phân phối đã được kiểm tra trên Windows 11 x64 với cấu hình PATH tối giản (`C:\Windows\System32`) và tắt hoàn toàn user-site.
-   - Chưa được kiểm định trên một máy ảo Windows mới cài đặt hoàn toàn chưa từng cài driver NVIDIA hoặc Visual C++ Redistributables.
-4. **Khả năng tương thích GPU ngoài NVIDIA**:
-   - Bộ runtime RVC hiện tại tối ưu cho NVIDIA GPU qua CUDA 11.8. Trên các máy không có GPU NVIDIA (chỉ dùng CPU hoặc GPU tích hợp), quá trình chuyển giọng có thể chạy ở chế độ CPU chậm hơn hoặc cần cấu hình bổ sung.
+- [x] **PySide6 Desktop Companion UI**: Interactive character on desktop, draggable window positioning, right-click context menu (Settings, Voice Credits, Quit).
+- [x] **Context-Aware Expression Engine**: Renders character atlas and dynamic emotional sprite changes (happy, angry/pouting, neutral).
+- [x] **Local RVC v2 Voice Conversion**: Pre-loaded with Nagisa Kubo 300-epoch voice model, +6 semitones pitch, HuBERT Base feature extractor, and RMVPE pitch detection.
+- [x] **Safe Process Lifecycle Management (Win32 Job Object)**: `KuboVoice.exe` uses `JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE` to guarantee all child background Python processes terminate cleanly upon closing, preventing orphaned background tasks.
+- [x] **Environment Isolation**: Bundled isolated runtime; zero interference with any existing system Python versions.
+- [x] **Privacy & Security**: Zero bundled API keys, zero personal configurations. Agent file and application access permissions default to empty, giving users full control via Settings UI.
 
 ---
 
-## 4. Ghi công Bản quyền & Giấy phép (Credits & Licenses)
+## 3. Unverified Aspects & Important Notes
 
-### Mô hình Giọng nói Nagisa Kubo
-- **Tác giả Voice Pack**: Ghi nhận công lao người tạo mô hình có Discord ID `416975678542446592` trong bài đăng nguồn do người dùng cung cấp.
-- **Nguồn lưu trữ**: [Kuma6/Nagisa-Kubo](https://huggingface.co/Kuma6/Nagisa-Kubo) trên Hugging Face.
-- **Cấu hình**: RVC v2, 300 epochs, pitch +6, index 0.75, RMS mix 0.25, protect 0.33.
-- Dự án tích hợp và tinh chỉnh tham số để đồng hành cùng nhân vật, không tự nhận là bên đã huấn luyện (train) mô hình gốc.
+Please note the following technical boundaries and unverified aspects before running:
 
-### Giấy phép Phần mềm
-- Mã nguồn ứng dụng do dự án Kubo phát triển được phát hành theo [MIT License](LICENSE).
-- Mô-đun suy luận RVC tuân theo giấy phép gốc của RVC Project tại `work/rvc/LICENSE`.
-- Chi tiết đầy đủ xem tại [CREDITS.md](CREDITS.md) và [docs/THIRD-PARTY.md](docs/THIRD-PARTY.md).
+1. **Physical Speaker Audio Playback**:
+   - Automated testing on the development environment verified raw PCM wave data generation, correct sample duration, and non-silent amplitude (peak 29,573 - 31,879 without clipping).
+   - Audio output through physical external speakers has not been live-audited in the headless build pipeline.
+2. **Live Online Conversational Sessions**:
+   - The release bundle includes zero API keys for security and privacy.
+   - For live chat, an Internet connection and a user-provided API key (OpenAI, Gemini, or compatible endpoint) configured via the **Settings** menu are required.
+3. **Clean-Room Windows Environment**:
+   - The package was verified on Windows 11 x64 with a minimal isolated PATH (`C:\Windows\System32`) and user-site disabled.
+   - It has not been tested on a freshly installed bare-metal Windows OS lacking Visual C++ Redistributables or graphics drivers.
+4. **NVIDIA CUDA GPU Requirement**:
+   - The bundled RVC engine is optimized for NVIDIA GPUs with CUDA 11.8. On machines without an NVIDIA GPU (running pure CPU or integrated graphics), voice conversion may operate noticeably slower or require CPU fallback tuning.
+
+---
+
+## 4. Credits & Licenses
+
+### Nagisa Kubo Voice Model
+- **Voice Pack Creator**: Original model credit belongs to Discord ID **`416975678542446592`**, originally shared in community sources.
+- **Upstream Repository**: Hosted at [Kuma6/Nagisa-Kubo](https://huggingface.co/Kuma6/Nagisa-Kubo) on Hugging Face.
+- **Configuration**: RVC v2, 300 epochs, pitch +6, index rate 0.75, RMS mix rate 0.25, protect rate 0.33.
+- This project integrates and optimizes parameters for desktop companion usage and does not claim to have trained the original base model.
+
+### Software Licenses
+- Application source code developed by the Kubo project is licensed under the [MIT License](LICENSE).
+- RVC inference components preserve the original upstream RVC Project open-source license (`work/rvc/LICENSE`).
+- For complete terms and attribution, see [CREDITS.md](CREDITS.md) and [docs/THIRD-PARTY.md](docs/THIRD-PARTY.md).
