@@ -29,6 +29,11 @@ Giữ cấu trúc này khi build: mã hiện tại sử dụng thư mục projec
 
 Kiểm tra source: chạy Python trong môi trường GUI với `-m unittest discover -s Kubo/app -p "test_*.py"` từ thư mục gốc. Một số kiểm tra cần dữ liệu riêng; ghi rõ thiếu dữ liệu, không giả báo đạt.
 
+### Phân biệt Mã nguồn Git và Gói chạy đầy đủ (Local Package)
+
+- **Mã nguồn trên Git**: Kho Git chỉ lưu trữ mã nguồn ứng dụng, bộ kiểm thử và tài liệu hướng dẫn (~1.9 MiB). Để giữ kho gọn nhẹ và tôn trọng bản quyền, Git **không lưu trữ** các model AI, ảnh nhân vật, tệp âm thanh hay runtime Python nặng nhiều GB. Người dùng tự chuẩn bị hoặc tải dữ liệu theo [docs/ASSETS.md](docs/ASSETS.md).
+- **Gói chạy đầy đủ (`local-package/Kubo/`)**: Bản đóng gói độc lập đầy đủ (~6.8 GiB) bao gồm sẵn `Kubo.exe`, runtime PyTorch CUDA, mô hình RVC Nagisa Kubo +6, HuBERT, RMVPE, FFmpeg và toàn bộ assets. Gói này được tự động tạo bởi script `Kubo/packaging/package_runnable.py` để chạy thử nghiệm trực tiếp trên máy hoặc chuẩn bị phát hành riêng ngoài Git (qua GitHub Releases nếu đủ điều kiện phân phối). Thư mục `local-package/` được loại trừ trong `.gitignore` và không bao giờ commit vào Git.
+
 ## Credit giọng Kubo
 
 Pack **Nagisa Kubo (JP), RVC V2, 300 epochs** được ghi công cho người tạo có Discord ID `416975678542446592` trong bài đăng nguồn do người dùng cung cấp. Pack được lưu trên [Kuma6/Nagisa-Kubo](https://huggingface.co/Kuma6/Nagisa-Kubo). Project này tích hợp model có sẵn, không tự nhận đã train model gốc. Xem [CREDITS.md](CREDITS.md) để biết nguồn và thông tin xác minh.

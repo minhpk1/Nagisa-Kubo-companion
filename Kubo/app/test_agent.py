@@ -131,6 +131,16 @@ class LocalToolTests(unittest.TestCase):
         tools=LocalTools([self.root],ui=ui)
         self.assertFalse(tools.execute('play_audio',{'root_id':'root0','path':'clip.wav'})['ok'])
 
+    def test_frozen_empty_settings_default_roots(self):
+        import paths
+        from unittest.mock import patch
+        with patch.object(paths, 'is_frozen', return_value=True):
+            self.assertEqual(paths.get_default_allowed_roots(), [])
+            tools = LocalTools(None)
+            self.assertEqual(tools.roots, [])
+            res = tools.execute('list_roots', {})
+            self.assertEqual(res['roots'], [])
+
 class AgentFlowTests(unittest.IsolatedAsyncioTestCase):
     async def test_stop_cancels_pending_work_without_result(self):
         tools=LocalTools([])

@@ -1,5 +1,7 @@
 # Nội dung gửi Antigravity
 
+**Yêu cầu mới cần làm trước khi upload:** thực hiện `docs/RUNNABLE-PACK-TASK.md`. Đưa đầy đủ EXE, runtime, ảnh, model và bộ chuyển giọng vào `local-package/Kubo/`, sử dụng dữ liệu có sẵn ở project cha, rồi kiểm tra chạy thực tế. Đây là gói cục bộ riêng, phải được Git bỏ qua; không commit các file nặng hoặc tự upload model/media công khai. Giữ bản app đang dùng và backup nguyên vẹn.
+
 **Yêu cầu bổ sung từ chủ project:** thực hiện `docs/VOICE-CREDIT-TASK.md`. Pack giọng Nagisa Kubo được lấy từ người khác và bài đăng yêu cầu credit. Giữ attribution trong CREDITS.md, README và các gói phát hành, không tự nhận project đã train model gốc.
 
 Hãy hỗ trợ hoàn thiện và đưa project Kubo lên GitHub từ chính thư mục Kubo-github này. Đọc README.md và docs/PUBLISH-PLAN.md, sau đó thực hiện các việc chuẩn bị, kiểm tra và sửa build cần thiết trên bản sao này. Không đưa project cha, backup, môi trường Python hoặc bộ release nhiều GB vào Git.
