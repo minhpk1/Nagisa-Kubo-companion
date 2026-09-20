@@ -34,5 +34,12 @@ settings.json
 work/rvc/assets/
 Kubo/voice/
 .idea/
-.vscode/
 local-package/
+dist-release/
+*.zip.*
+*.part*
+*.001
+*.002
+*.003
+*.004
+*.005

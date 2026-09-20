@@ -22,6 +22,18 @@ Giữ cấu trúc này khi build: mã hiện tại sử dụng thư mục projec
 5. Cấp đúng thư mục/app muốn dùng trong Cài đặt. RVC lỗi thì phiên dừng; không tự thay bằng giọng nền.
 
 Ảnh và chuyển giọng chạy cục bộ; hội thoại cần dịch vụ trực tuyến phù hợp và có thể phát sinh phí. Tắt micro/ẩn cửa sổ không kết thúc phiên; dùng Ngắt kết nối hoặc Thoát.
+## Tải Bản Phát Hành Sẵn Dùng (GitHub Releases)
+
+Đối với người dùng muốn tải bản chạy ngay mà không cần chuẩn bị môi trường Python hoặc tải thủ công các mô hình AI:
+1. Truy cập mục **Releases** của repository: tải trọn bộ bản phát hành **v1.0.0**.
+2. Tải 3 tệp về **cùng một thư mục**:
+   - `Kubo-v1.0.0-windows-x64.zip.001` (1.81 GiB)
+   - `Kubo-v1.0.0-windows-x64.zip.002` (1.67 GiB)
+   - `extract.cmd` (tiện ích tự động gộp & giải nén cho Windows)
+3. Nhấp đúp chuột vào `extract.cmd` để tự động ghép nhị phân và giải nén thành thư mục `Kubo\`.
+4. Mở `Kubo\Kubo.exe` để trải nghiệm ứng dụng ngay lập tức!
+
+Chi tiết ghi chú phát hành, bảng mã băm SHA-256 và danh sách lưu ý kiểm định xem tại [docs/RELEASE-V1.0.0.md](docs/RELEASE-V1.0.0.md).
 
 ## Build và kiểm tra
 
