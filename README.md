@@ -32,7 +32,21 @@ Kiểm tra source: chạy Python trong môi trường GUI với `-m unittest dis
 ### Phân biệt Mã nguồn Git và Gói chạy đầy đủ (Local Package)
 
 - **Mã nguồn trên Git**: Kho Git chỉ lưu trữ mã nguồn ứng dụng, bộ kiểm thử và tài liệu hướng dẫn (~1.9 MiB). Để giữ kho gọn nhẹ và tôn trọng bản quyền, Git **không lưu trữ** các model AI, ảnh nhân vật, tệp âm thanh hay runtime Python nặng nhiều GB. Người dùng tự chuẩn bị hoặc tải dữ liệu theo [docs/ASSETS.md](docs/ASSETS.md).
-- **Gói chạy đầy đủ (`local-package/Kubo/`)**: Bản đóng gói độc lập đầy đủ (~6.8 GiB) bao gồm sẵn `Kubo.exe`, runtime PyTorch CUDA, mô hình RVC Nagisa Kubo +6, HuBERT, RMVPE, FFmpeg và toàn bộ assets. Gói này được tự động tạo bởi script `Kubo/packaging/package_runnable.py` để chạy thử nghiệm trực tiếp trên máy hoặc chuẩn bị phát hành riêng ngoài Git (qua GitHub Releases nếu đủ điều kiện phân phối). Thư mục `local-package/` được loại trừ trong `.gitignore` và không bao giờ commit vào Git.
+- **Gói chạy đầy đủ (`local-package/Kubo/`)**: Bản đóng gói độc lập đầy đủ (~6.84 GiB, 36,448 tệp) bao gồm sẵn `Kubo.exe`, runtime PyTorch CUDA, mô hình RVC Nagisa Kubo +6, HuBERT, RMVPE, FFmpeg và toàn bộ assets. Gói này dùng để chạy thử nghiệm trực tiếp trên máy hoặc chuẩn bị phát hành riêng ngoài Git. Thư mục `local-package/` được loại trừ trong `.gitignore` và không bao giờ commit vào Git.
+  - **Khởi chạy ứng dụng ngay**: Mở `local-package\Kubo\Kubo.exe`.
+  - **Báo cáo kiểm định độc lập**: Xem kết quả kiểm thử thực tế với phân định rõ **PASS / FAIL / NOT TESTED** tại [docs/LOCAL-PACKAGE-REPORT.md](docs/LOCAL-PACKAGE-REPORT.md).
+  - **Kiểm tra xác thực đường dẫn gói (Dry Run)**:
+    ```powershell
+    python Kubo/packaging/package_runnable.py --check-paths
+    ```
+  - **Tái tạo gói từ mã nguồn**:
+    ```powershell
+    # Tự động nhận diện nguồn dev cha và biên dịch lại GUI
+    python Kubo/packaging/package_runnable.py --clean
+
+    # Hoặc chỉ định rõ thư mục dev và thư mục xuất
+    python Kubo/packaging/package_runnable.py --dev-root "path/to/dev" --output-dir "path/to/local-package/Kubo" --clean
+    ```
 
 ## Credit giọng Kubo
 
